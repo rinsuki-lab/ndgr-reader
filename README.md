@@ -2,9 +2,7 @@
 
 仮サーバーのコメント読むやつです
 
-git submodule を使っていることに注意
-
-あとは `pnpm build` した後 `pnpm start` で動くはず
+git submodule を解決した後 `pnpm build` した後 `pnpm start` で動くはず
 
 (Protobufの生成コードを gitignore しているので一回 `pnpm build` しないと LSP 類が動かない)
 
