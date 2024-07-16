@@ -1,5 +1,6 @@
 import { JSDOM } from "jsdom"
 import z from "zod"
+import { fetchWrapper } from "./fetch-wrapper.js"
 
 const zWatchPageEmbeddedData = z.object({
     temporaryMeasure: z.object({
@@ -9,7 +10,7 @@ const zWatchPageEmbeddedData = z.object({
 
 export async function parseWatchPage(liveId: string) {
     if (!/^kl[0-9]+$/.test(liveId)) throw new Error("invalid liveId")
-    const watchPageResponse = await fetch("https://live.nicovideo.jp/rekari/" + liveId)
+    const watchPageResponse = await fetchWrapper("https://live.nicovideo.jp/rekari/" + liveId)
     if (!watchPageResponse.ok) throw new Error(`Failed to fetch watch page: HTTP ${watchPageResponse.status} ${watchPageResponse.statusText}`)
     const watchPageText = await watchPageResponse.text()
     const watchPageDOM = new JSDOM(watchPageText)
