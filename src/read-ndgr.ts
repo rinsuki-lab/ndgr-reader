@@ -7,6 +7,7 @@ type ParsableProtoType<T> = {
 export async function readNdgr<T>(url: string, protoType: ParsableProtoType<T>, chunkCallback: (chunk: T) => Promise<void>): Promise<void> {
     console.log("reading", url)
     const ndgrNow = await fetch(url)
+    if (!ndgrNow.ok) throw new Error(`Failed to fetch ${url}: HTTP ${ndgrNow.status} ${ndgrNow.statusText}`)
     const ndgrBody = ndgrNow.body!.getReader()
     const protobufReader = new ProtobufStreamReader()
 
