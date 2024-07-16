@@ -1,0 +1,7 @@
+version: v2
+inputs:
+- directory: third_party/nicolive-comment-protobuf/proto
+plugins:
+- remote: buf.build/bufbuild/es
+  out: src/pb
+  opt: target=ts

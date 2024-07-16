@@ -1,0 +1,3 @@
+[submodule "third_party/nicolive-comment-protobuf"]
+	path = third_party/nicolive-comment-protobuf
+	url = https://github.com/n-air-app/nicolive-comment-protobuf
